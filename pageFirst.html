@@ -5,8 +5,84 @@
 		</title>
 	</head>
 	<body>
-		<div id="wrapper">
+		<div id="login" align="center" >
+    <h1 > Login Page</h1>
+    <input type="text" id="userName" placeholder = "Enter Email" value="anuj">
+    </br></br>
+    <input type="password" id="password" placeholder="Enter Password" value="anuj">
+    </br></br>
+    
+
+    <table id="Buttons">
+		<tr>
+			<td>
+				<input type="button" id="onSignUp" value="SignUp">
+			</td>
+			<td>
+				<input type="button" id="onLogin" value="Login">
+			</td>
+			
+		</tr>	
+	</table>	
+   </div>
+    
+
+		<div id="signup">
+		<h1> Create a new account</h1>
+		<table id="table">
+			<tr>
+				<td>
+					Name:
+				</td>
+				<td>
+					<input type="text" placeholder="Enter Name" id="name">
+				</td>	
+			</tr>
+			<tr>
+				<td>
+					Email:
+				</td>
+				<td>
+					<input type="text" placeholder="Enter Email" id="email">
+				</td>	
+			</tr>
+			
+			<tr>
+				<td>
+					Password:
+				</td>
+				<td>
+					<input type="password" placeholder="Enter Password" id="pwd">
+				</td>	
+			</tr>
+			
+			<tr>
+				<td>
+					Re-Password:
+				</td>
+				<td>
+					<input type="password" placeholder="Enter Password again" id="repwd">
+				</td>	
+			</tr>
+			
+			<tr>
+				<td></td>
+				<td>
+					
+					<input type="button" value="Sign Up" id="signUp" style="float:right">
+					<input type="button" value="Cancel" id="cancel" style="float:right">
+					
+				</td>
+			</tr>
+			
+			
+			
+		</table>
 		</div>
+		<div id="wrapper" >
+			<div id="rightMost" align="right"></div>
+		</div>
+		
 		<script src="pageFirst.js"></script>
 	</body>
 </html>

@@ -3,8 +3,23 @@ var fs = require('fs');
 var url = require('url');
 
 var messages = [];
+var UserList = [];
 getData();
 console.log(messages);
+
+
+var obj = new Object();
+obj.name = "Balwinder";
+obj.email = "balwinder1012@gmail.com";
+obj.pwd = "saini"
+obj.type = "admin";
+
+
+if(notAlready())
+	UserList.push(obj);
+
+console.log(JSON.stringify(UserList));
+
 function serveTheHtmlFile(response,fileName){
 	
 	
@@ -57,6 +72,45 @@ function getData(){
 				console.log("file is empty");
 			}
 	}});
+	
+	fs.readFile("UserList.txt", 'utf8', function (err, data) {
+		if (err) 
+			console.log("Error");
+    	
+		else{	
+			if(data!=""){
+				var temp = JSON.parse(data);
+				console.log(temp.length+temp);
+				for(var i=0;i<temp.length;i++)
+					if(notAlready1(temp[i])){
+						UserList.push(temp[i]);
+					}
+				updateFile();
+			}
+			else{
+				
+				if(notAlready()){
+				UserList.push(obj);
+				updateFile();
+				}
+				console.log("User file is empty");
+			}
+	}});
+}
+function notAlready1(temp){
+	for(x in UserList){
+		if(UserList[x].email==temp.email)
+			return false;
+	}
+	return true;
+}
+function notAlready(){
+	
+	for(x in UserList){
+		if(UserList[x].email==obj.email)
+			return false;
+	}
+	return true;
 }
 function getPreviousMessages(response){
 	/*
@@ -85,11 +139,18 @@ function getPreviousMessages(response){
 }
 
 function updateFile(){
-	fs.writeFile('dataFile.txt', '', function(){console.log('done')})
+	fs.writeFile('dataFile.txt','', function(){console.log('done')})
 	fs.writeFile("dataFile.txt",JSON.stringify(messages),function(err){
 					if(err)
 						console.log("error in writing");
 	});
+	fs.writeFile('UserList.txt','', function(){console.log('done')})
+	console.log("inserting in file "+JSON.stringify(UserList));
+	fs.writeFile("UserList.txt",JSON.stringify(UserList),function(err){
+					if(err)
+						console.log("error in writing");
+	});
+	
 	
 }
 function sendTheMessage(request,response){
@@ -123,6 +184,42 @@ function deleteAllMsgs(response){
 	
 	
 }
+
+function getUserList(response){
+	if(UserList.length){
+			//		console.log("checking"+messages[0].msg);
+				//	console.log("checking"+messages[1].msg);
+				response.end(JSON.stringify(UserList));
+				}
+				else
+					response.end("");
+	
+	
+	
+}
+function registerTheUser(request,response){
+		var body="";
+		request.on('data',function(d){
+			body+=d;
+		});
+		
+		
+		request.on('end',function(){
+			if(body){
+				body = JSON.parse(body);
+				
+				if(notAlready1(body))
+				UserList.push(body);
+				
+				updateFile();
+				
+				
+			}
+			response.end();
+		});
+	
+	
+}
 function handleRequests(request,response){
 	
 	var pathName = url.parse(request.url).pathname;
@@ -152,7 +249,14 @@ function handleRequests(request,response){
 	if(request.method==="GET" && pathName==="/deleteAllMsgs")
 		deleteAllMsgs(response);
 	
+
+	if(request.method=="GET" && pathName==="/getUserList")
+		getUserList(response);
 	
+	if(request.method=="GET" && pathName==="/getUserList")
+		getUserList(response);
+	if(request.method=="POST" && pathName==="/userRegistration")
+		registerTheUser(request,response);
 	
 	
 }

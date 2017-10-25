@@ -1,0 +1,1 @@
+[{"name":"Balwinder","email":"balwinder1012@gmail.com","pwd":"saini","type":"admin"},{"name":"p","email":"p","pwd":"p","type":"user"},{"name":"o","email":"o","pwd":"o","type":"user"},{"name":"l","email":"l","pwd":"l","type":"user"}]
