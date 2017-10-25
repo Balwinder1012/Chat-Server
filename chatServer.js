@@ -29,7 +29,7 @@ function handleRequests(request,response){
 		serveTheHtmlFile(response,"pageFirst.html");
 	if(request.method=="GET" && pathName==="/pageFirst.js")
 	{
-		fs.readFile("index.js",function(err,data){
+		fs.readFile("pageFirst.js",function(err,data){
 
 			if(err){
 				console.log("Error in reading the file");
