@@ -43,7 +43,7 @@ wrapper.appendChild(h1);
 var tf = document.createElement('input');
 tf.type = "text";
 tf.maxlength = "4";
-tf.size="148";
+tf.size="100";
 tf.placeholder = "Write here.....";
 tf.addEventListener("keypress",function(event){
 
@@ -65,7 +65,7 @@ wrapper.appendChild(document.createElement('br'));
 	
 var ta = document.createElement('textarea');
 ta.setAttribute('rows','30');
-ta.setAttribute('cols','100');
+ta.setAttribute('cols','120');
 ta.readOnly = true;
 	//ta.setAttribute("style:overflow-y='scroll'");
 ta.scrollTop = ta.scrollHeight;
