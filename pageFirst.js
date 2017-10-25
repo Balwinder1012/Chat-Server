@@ -65,7 +65,7 @@ wrapper.appendChild(document.createElement('br'));
 	
 var ta = document.createElement('textarea');
 ta.setAttribute('rows','30');
-ta.setAttribute('cols','120');
+ta.setAttribute('cols','100');
 ta.readOnly = true;
 	//ta.setAttribute("style:overflow-y='scroll'");
 ta.scrollTop = ta.scrollHeight;
