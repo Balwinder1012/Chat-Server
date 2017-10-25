@@ -47,6 +47,6 @@ function handleRequests(request,response){
 	
 }
 var server = http.createServer(handleRequests);
-server.listen("5000");
+server.listen(process.env.PORT || 5000)
 console.log("Server Initialized at Port Number 5000");
 
