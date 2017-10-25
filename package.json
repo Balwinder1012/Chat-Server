@@ -1,0 +1,16 @@
+{
+  "name": "Chat Server",
+  "version": "0.2.6",
+  "description": "A sample Node.js app using Express 4",
+  "engines": {
+    "node": "8.1.4"
+  },
+  "main": "index.js",
+ 
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Balwinder1012/Chat-Server"
+  },
+  
+  "license": "MIT"
+}
