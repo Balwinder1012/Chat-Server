@@ -128,8 +128,8 @@ function handleRequests(request,response){
 	var pathName = url.parse(request.url).pathname;
 	console.log(pathName);
 	if(request.method==="GET" && pathName==="/")
-		serveTheHtmlFile(response,"index.html");
-	if(request.method=="GET" && pathName==="/index.js")
+		serveTheHtmlFile(response,"pageFirst.html");
+	if(request.method=="GET" && pathName==="/pageFirst.js")
 	{
 		fs.readFile("index.js",function(err,data){
 
