@@ -23,7 +23,7 @@ function getPreviousMessages(){
 			
 			
 				messageArray = JSON.parse(t);
-				console.log(messageArray[1]);
+				//console.log(messageArray[1]);
 			
 			}
 			drawTheTextArea();
@@ -65,7 +65,7 @@ wrapper.appendChild(document.createElement('br'));
 	
 var ta = document.createElement('textarea');
 ta.setAttribute('rows','30');
-ta.setAttribute('cols','150');
+ta.setAttribute('cols','100');
 ta.readOnly = true;
 	//ta.setAttribute("style:overflow-y='scroll'");
 ta.scrollTop = ta.scrollHeight;
